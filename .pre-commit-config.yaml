@@ -1,0 +1,13 @@
+# .pre-commit-config.yaml
+
+- repo: https://github.com/pre-commit/mirrors-ruff
+  rev: v0.0.264  # Vous pouvez vérifier la dernière version sur le repo de ruff
+  hooks:
+    - id: ruff
+      args: ['--fix']  # Pour corriger automatiquement les erreurs si possible
+
+- repo: https://github.com/pre-commit/mirrors-pytest
+  rev: v1.0.0  # Vous pouvez vérifier la dernière version sur le repo de pytest
+  hooks:
+    - id: pytest
+      args: ['--maxfail=1', '--disable-warnings', '-q']
