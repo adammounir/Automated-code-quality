@@ -14,16 +14,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.11'
+
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-          pip install ruff pytest
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Assurez-vous que Flask est installé ici
+
       - name: Run Ruff
-        run: ruff check app.py
+        run: ruff check .
+
       - name: Run Tests
         run: pytest
